@@ -1,0 +1,18 @@
+STUDENT: Ivanov Ivan
+CURRICULUM: J2EE Developer
+START_DATE: <указать дату получения задания>
+COURSE: Технология Java Servlets DURATION: 16
+COURSE: Struts Framework 	 DURATION: 24
+COURSE: Spring Framework  	 DURATION: 48
+COURSE: Hibernate 		 DURATION: 20
+MARKS: 3, 4, 2, 5, 3, 3
+
+STUDENT: Petrov Petr
+CURRICULUM: Java Developer
+START_DATE: <указать дату получения задания>
+COURSE: Обзор технологий Java 	 DURATION: 8
+COURSE: Библиотека JFC/Swing 	 DURATION: 16
+COURSE: Технология JDBC  	 DURATION: 16
+COURSE: Технология JAX 		 DURATION: 52 
+COURSE: Библиотеки commons	 DURATION: 44 
+MARKS: 4, 5, 3, 2, 3, 3, 5, 5

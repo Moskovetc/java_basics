@@ -1,4 +1,4 @@
-package java.trainingcenter.student;
+package main.trainingcenter.student;
 
 public class Course {
     private String name;

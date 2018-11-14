@@ -1,14 +1,16 @@
-package java.trainingcenter.student;
+package main.trainingcenter.student;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class Student {
     private String name;
     private String curriculum;
-    private Date startDate;
-    private List courses;
-    private List marks;
+    private LocalDateTime startDate;
+    private List<Course> courses;
+    private Collection<Integer> marks;
 
     public String getName() {
         return name;
@@ -26,11 +28,11 @@ public class Student {
         this.curriculum = curriculum;
     }
 
-    public Date getStartDate() {
+    public LocalDateTime getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;
     }
 
@@ -38,15 +40,15 @@ public class Student {
         return courses;
     }
 
-    public void setCourses(List courses) {
+    public void setCourses(List<Course> courses) {
         this.courses = courses;
     }
 
-    public List getMarks() {
+    public Collection<Integer> getMarks() {
         return marks;
     }
 
-    public void setMarks(List marks) {
+    public void setMarks(Collection<Integer> marks) {
         this.marks = marks;
     }
 }
