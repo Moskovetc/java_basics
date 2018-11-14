@@ -1,0 +1,18 @@
+Ivanov Ivan;
+J2EE Developer;
+<указать дату получения задания>;
+Технология Java Servlets; 16;
+Framework; 24;
+Spring Framework; 48;
+Hibernate; 20;
+3, 4, 2, 5, 3, 3;
+
+STUDENT: Petrov Petr
+CURRICULUM: Java Developer
+START_DATE: <указать дату получения задания>
+COURSE: Обзор технологий Java 	 DURATION: 8
+COURSE: Библиотека JFC/Swing 	 DURATION: 16
+COURSE: Технология JDBC  	 DURATION: 16
+COURSE: Технология JAX 		 DURATION: 52 
+COURSE: Библиотеки commons	 DURATION: 44 
+MARKS: 4, 5, 3, 2, 3, 3, 5, 5

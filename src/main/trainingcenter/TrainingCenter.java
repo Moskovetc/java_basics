@@ -1,12 +1,13 @@
 package main.trainingcenter;
 
-import main.trainingcenter.student.Student;
 import main.trainingcenter.datarepository.HardcodeDataRepository;
 import main.trainingcenter.datarepository.IDataRepository;
+import main.trainingcenter.student.Student;
 
-import java.util.*;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class TrainingCenter {
     private String filePath = "students.txt";
@@ -19,11 +20,15 @@ public class TrainingCenter {
         System.out.println("We glad to see you in the Training Center!\n" +
                 "1. list of students\n" +
                 "2. list of students sorted by average mark\n" +
-                "3. Exit");
+                "3. list of students sorted by education time\n" +
+                "4. Exit");
         System.out.print("your choice : ");
         Scanner scanner = new Scanner(System.in);
-        if (scanner.nextLine().equals("2")) {
+        String choice = scanner.nextLine();
+        if (choice.equals("2")) {
             filterStudentsByAverageMark(students);
+        } else if (choice.equals("3")) {
+            filterStudentsByEndOfEducation(students);
         }
     }
 
@@ -43,21 +48,25 @@ public class TrainingCenter {
     }
 
     private void filterStudentsByAverageMark(List<Student> students) {
-        List<Student> sorted = students.stream()
+        students.stream()
                 .sorted(Comparator.comparing(this::getAverage))
+                .peek(student -> System.out.println(String.format("%s %s", student.getName(), getAverage(student))))
                 .collect(Collectors.toList());
-        sorted.forEach(item -> System.out.println(String.format("%s %s %s ",item.getName(), item.getMarks(), item.getStartDate())));
+
     }
 
-    private Double getAverage(Student student){
+    private Double getAverage(Student student) {
         return student.getMarks().stream().collect(Collectors.averagingInt((mark) -> mark));
     }
 
-    private boolean filterStudentsByEndOfEducation(List students) {
-        return false;
+    private void filterStudentsByEndOfEducation(List<Student> students) {
+        students.stream()
+                .sorted(Comparator.comparing(Student::getStartDate))
+                .peek(student -> System.out.println(String.format("%s %s", student.getName(), student.getStartDate())))
+                .collect(Collectors.toList());
     }
 
-    private boolean filterStudentsByAcademicPerfomance(List students) {
+    private boolean filterStudentsByAcademicPerfomance(List<Student> students) {
         return false;
     }
 

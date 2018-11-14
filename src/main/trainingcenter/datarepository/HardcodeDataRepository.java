@@ -9,6 +9,14 @@ import java.util.Arrays;
 import java.util.List;
 
 public class HardcodeDataRepository implements IDataRepository {
+    private Student setStudentData(String s){
+        Student student = new Student();
+        student.setName(s.split(";")[0]);
+        student.setCurriculum();
+        student.setStartDate();
+        student.setMarks();
+        return student;
+    }
     @Override
     public List getData() {
         List<Student> students = new ArrayList<>();
@@ -35,6 +43,7 @@ public class HardcodeDataRepository implements IDataRepository {
         students.add(student);
 
         student = new Student();
+        courses = new ArrayList<>();
         student.setName("Petrov Petr");
         student.setCurriculum("Java Developer");
         student.setStartDate(LocalDateTime.of(2018, 11, 9, 10, 00));
