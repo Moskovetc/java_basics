@@ -9,7 +9,7 @@ public class Student {
     private String name;
     private String curriculum;
     private LocalDateTime startDate;
-    private List<Course> courses;
+    private Collection<Course> courses;
     private Collection<Integer> marks;
 
     public String getName() {
@@ -36,7 +36,7 @@ public class Student {
         this.startDate = startDate;
     }
 
-    public List getCourses() {
+    public Collection<Course> getCourses() {
         return courses;
     }
 

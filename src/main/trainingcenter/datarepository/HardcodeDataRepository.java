@@ -9,62 +9,49 @@ import java.util.Arrays;
 import java.util.List;
 
 public class HardcodeDataRepository implements IDataRepository {
-    private Student setStudentData(String s){
+    private Course getCourse(String name, int duration){
+        Course course = new Course();
+        course.setName(name);
+        course.setDuration(duration);
+        return course;
+    }
+
+    private Student getStudent(String studentName, String curriculum, LocalDateTime startDate, List<Course> courses, List<Integer> marks) {
         Student student = new Student();
-        student.setName(s.split(";")[0]);
-        student.setCurriculum();
-        student.setStartDate();
-        student.setMarks();
+        student.setName(studentName);
+        student.setCurriculum(curriculum);
+        student.setStartDate(startDate);
+        student.setCourses(courses);
+        student.setMarks(marks);
         return student;
     }
+
     @Override
     public List getData() {
         List<Student> students = new ArrayList<>();
-        Student student = new Student();
-        Course course = new Course();
-        List<Course> courses = new ArrayList<>();
-        student.setName("Ivanov Ivan");
-        student.setCurriculum("J2EE Developer");
-        student.setStartDate(LocalDateTime.of(2018, 11, 10, 10, 00));
-        course.setName("Технология Java Servlets");
-        course.setDuration(16);
-        courses.add(course);
-        course.setName("Struts Framework");
-        course.setDuration(24);
-        courses.add(course);
-        course.setName("Spring Framework");
-        course.setDuration(48);
-        courses.add(course);
-        course.setName("Hibernate");
-        course.setDuration(20);
-        courses.add(course);
-        student.setCourses(courses);
-        student.setMarks(Arrays.asList(3, 4, 2, 5, 3, 3));
-        students.add(student);
 
-        student = new Student();
+        String studentName = "Ivanov Ivan";
+        String curriculum = "J2EE Developer";
+        LocalDateTime startDate = LocalDateTime.of(2018, 11, 10, 10, 00);
+        List<Integer> marks = Arrays.asList(3, 4, 2, 5, 3, 3);
+        List<Course> courses = new ArrayList<>();
+        courses.add(getCourse("Технология Java Servlets", 16));
+        courses.add(getCourse("Struts Framework", 24));
+        courses.add(getCourse("Spring Framework", 48));
+        courses.add(getCourse("Hibernate", 20));
+        students.add(getStudent(studentName, curriculum, startDate, courses, marks));
+
+        studentName = "Petrov Petr";
+        curriculum = "Java Developer";
+        startDate = LocalDateTime.of(2018, 11, 9, 10, 00);
+        marks = Arrays.asList(4, 5, 3, 2, 3, 3, 5, 5);
         courses = new ArrayList<>();
-        student.setName("Petrov Petr");
-        student.setCurriculum("Java Developer");
-        student.setStartDate(LocalDateTime.of(2018, 11, 9, 10, 00));
-        course.setName("Обзор технологий Java");
-        course.setDuration(8);
-        courses.add(course);
-        course.setName("Библиотека JFC/Swing");
-        course.setDuration(16);
-        courses.add(course);
-        course.setName("Технология JDBC");
-        course.setDuration(16);
-        courses.add(course);
-        course.setName("Технология JAX");
-        course.setDuration(52);
-        courses.add(course);
-        course.setName("Библиотеки commons");
-        course.setDuration(44);
-        courses.add(course);
-        student.setCourses(courses);
-        student.setMarks(Arrays.asList(4, 5, 3, 2, 3, 3, 5, 5));
-        students.add(student);
+        courses.add(getCourse("Обзор технологий Java", 8));
+        courses.add(getCourse("Библиотека JFC/Swing", 16));
+        courses.add(getCourse("Технология JDBC", 16));
+        courses.add(getCourse("Технология JAX", 52));
+        courses.add(getCourse("Библиотеки commons", 44));
+        students.add(getStudent(studentName, curriculum, startDate, courses, marks));
 
         return students;
     }

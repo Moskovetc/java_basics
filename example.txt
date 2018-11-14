@@ -1,11 +1,11 @@
-Ivanov Ivan;
-J2EE Developer;
-<указать дату получени€ задани€>;
-“ехнологи€ Java Servlets; 16;
-Framework; 24;
-Spring Framework; 48;
-Hibernate; 20;
-3, 4, 2, 5, 3, 3;
+Ivanov Ivan
+J2EE Developer
+<указать дату получени€ задани€>
+3, 4, 2, 5, 3, 3
+“ехнологи€ Java Servlets; 16
+Framework 24
+Spring Framework 48
+Hibernate 20
 
 STUDENT: Petrov Petr
 CURRICULUM: Java Developer

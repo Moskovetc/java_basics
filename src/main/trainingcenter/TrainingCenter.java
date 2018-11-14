@@ -2,11 +2,11 @@ package main.trainingcenter;
 
 import main.trainingcenter.datarepository.HardcodeDataRepository;
 import main.trainingcenter.datarepository.IDataRepository;
+import main.trainingcenter.student.Course;
 import main.trainingcenter.student.Student;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.time.Duration;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class TrainingCenter {
@@ -21,7 +21,8 @@ public class TrainingCenter {
                 "1. list of students\n" +
                 "2. list of students sorted by average mark\n" +
                 "3. list of students sorted by education time\n" +
-                "4. Exit");
+                "4. temp\n" +
+                "5. Exit");
         System.out.print("your choice : ");
         Scanner scanner = new Scanner(System.in);
         String choice = scanner.nextLine();
@@ -29,40 +30,49 @@ public class TrainingCenter {
             filterStudentsByAverageMark(students);
         } else if (choice.equals("3")) {
             filterStudentsByEndOfEducation(students);
+        } else if (choice.equals("4")) {
+            temp(students);
         }
     }
 
-    private int calculateEndOfEducation(Student student) {
+    private void temp(List<Student> students) {
+        System.out.println(students.get(0).getStartDate());
+        System.out.println(students.get(1).getStartDate());
+        System.out.println(Duration.between(students.get(0).getStartDate(), students.get(1).getStartDate()).toHours());
+        System.out.println(getEndOfEducation(students.get(0)));
 
-        return 0;
     }
 
-    private float calculateAverageMark(Student student) {
+    private int getEndOfEducation(Student student) {
+        int durationOfCourses = Arrays.stream(student.getCourses().stream()
+                .mapToInt(Course::getDuration).toArray())
+                .reduce((s1, s2) -> s1 + s2).orElse(0);
+        int hoursOfEducationPassed = student.getMarks().size() * 8;
+        return durationOfCourses - hoursOfEducationPassed;
 
-        return 0;
     }
 
-    private boolean calculateAcademicPerfomance(Student student) {
+    private boolean getAcademicPerfomance(Student student) {
 
         return false;
     }
 
     private void filterStudentsByAverageMark(List<Student> students) {
         students.stream()
-                .sorted(Comparator.comparing(this::getAverage))
-                .peek(student -> System.out.println(String.format("%s %s", student.getName(), getAverage(student))))
+                .sorted(Comparator.comparing(this::getAverageMark))
+                .peek(student -> System.out.println(String.format("%s %s", student.getName(), getAverageMark(student))))
                 .collect(Collectors.toList());
 
     }
 
-    private Double getAverage(Student student) {
+    private Double getAverageMark(Student student) {
         return student.getMarks().stream().collect(Collectors.averagingInt((mark) -> mark));
     }
 
     private void filterStudentsByEndOfEducation(List<Student> students) {
         students.stream()
-                .sorted(Comparator.comparing(Student::getStartDate))
-                .peek(student -> System.out.println(String.format("%s %s", student.getName(), student.getStartDate())))
+                .sorted(Comparator.comparing(this::getEndOfEducation))
+                .peek(student -> System.out.println(String.format("%s %s", student.getName(), getEndOfEducation(student))))
                 .collect(Collectors.toList());
     }
 
