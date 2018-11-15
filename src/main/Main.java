@@ -7,11 +7,11 @@ public class Main {
         TrainingCenter trainingCenter = new TrainingCenter();
         if (1 == args.length){
             trainingCenter.setStudentFile(args[0]);
-            trainingCenter.run();
+            trainingCenter.runMenu();
         } else if (1 < args.length) {
             System.out.println("Argument is invalid");
         } else {
-            trainingCenter.run();
+            trainingCenter.runMenu();
         }
     }
 }

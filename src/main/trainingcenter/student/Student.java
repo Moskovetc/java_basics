@@ -9,8 +9,8 @@ public class Student {
     private String name;
     private String curriculum;
     private LocalDateTime startDate;
-    private Collection<Course> courses;
-    private Collection<Integer> marks;
+    private List<Course> courses;
+    private List<Integer> marks;
 
     public String getName() {
         return name;
@@ -36,7 +36,7 @@ public class Student {
         this.startDate = startDate;
     }
 
-    public Collection<Course> getCourses() {
+    public List<Course> getCourses() {
         return courses;
     }
 
@@ -44,11 +44,11 @@ public class Student {
         this.courses = courses;
     }
 
-    public Collection<Integer> getMarks() {
+    public List<Integer> getMarks() {
         return marks;
     }
 
-    public void setMarks(Collection<Integer> marks) {
+    public void setMarks(List<Integer> marks) {
         this.marks = marks;
     }
 }
