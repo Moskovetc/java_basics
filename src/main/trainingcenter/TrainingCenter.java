@@ -17,6 +17,7 @@ public class TrainingCenter {
 
     public void runMenu() {
         ShowManager showManager = new ShowManager();
+        showManager.setAverageMarkForAcademicPerfomance(4.5);
         IDataRepository repository = new HardcodeDataRepository();
 //        IDataRepository repository = new FileDataRepository(filePath);
         students = repository.getData();
