@@ -44,7 +44,7 @@ public class HardcodeDataRepository implements IDataRepository {
         studentName = "Petrov Petr";
         curriculum = "Java Developer";
         startDate = LocalDateTime.of(2018, 11, 9, 10, 00);
-        marks = Arrays.asList(4, 5, 3, 2, 3, 3, 5, 5);
+        marks = Arrays.asList(4, 5, 3, 2, 5, 5, 5, 5);
         courses = new ArrayList<>();
         courses.add(getCourse("Обзор технологий Java", 8));
         courses.add(getCourse("Библиотека JFC/Swing", 16));
