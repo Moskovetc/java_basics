@@ -48,6 +48,19 @@ public class HardcodeDataRepository implements IDataRepository {
         courses.add(new Course("Библиотеки commons", 44));
         students.add(getStudent(studentName, curriculum, startDate, courses, marks));
 
+        studentName = "Kostin Kostya";
+        curriculum = "Java Developer";
+        startDate = LocalDateTime.of(2018, 11, 7, 10, 00);
+        marks = Arrays.asList(4, 5, 3, 2, 2, 5, 3, 5);
+        courses = new ArrayList<>();
+        courses.add(new Course("Обзор технологий Java", 8));
+        courses.add(new Course("Библиотека JFC/Swing", 16));
+        courses.add(new Course("Технология JDBC", 16));
+        courses.add(new Course("Технология JAX", 52));
+        courses.add(new Course("Библиотеки commons", 44));
+        courses.add(new Course("Collections Framework", 57));
+        students.add(getStudent(studentName, curriculum, startDate, courses, marks));
+
         return students;
     }
 }
